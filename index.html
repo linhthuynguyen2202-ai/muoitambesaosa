@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muối Tắm Bé Sao Sa – Thuần Thiên Nhiên, Khỏe Tận Gốc</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════
+   DESIGN SYSTEM GỐC (giữ nguyên 100%)
+   - Herb Green:  #2C5E43
+   - Mint Green:  #E8F5E9
+   - Warm Amber:  #FFF8E1 / #FFA726
+   - Font:        Be Vietnam Pro / Nunito
+   - Effect:      Glassmorphism, fade-in, hover zoom
+════════════════════════════════════════════ */
+:root {
+  /* Màu chủ đạo theo plan gốc */
+  --herb-green:      #2C5E43;
+  --herb-dark:       #1a3a28;
+  --herb-deeper:     #122a1d;
+  --herb-light:      #3d7a5a;
+  --mint-green:      #E8F5E9;
+  --mint-medium:     #c8e6c9;
+  --mint-bright:     #a5d6a7;
+  --warm-amber:      #FFA726;
+  --amber-soft:      #FFF8E1;
+  --amber-deep:      #e8920a;
+  --amber-glow:      #ffcc80;
+
+  /* Neutrals */
+  --white:           #ffffff;
+  --cream:           #fdfcf8;
+  --text-body:       #2a3d30;
+  --text-muted:      #5a7a62;
+  --red-alert:       #e53935;
+
+  /* Glassmorphism helpers */
+  --glass-white:     rgba(255,255,255,0.12);
+  --glass-border:    rgba(255,255,255,0.18);
+  --glass-green:     rgba(44,94,67,0.15);
+  --glass-mint:      rgba(232,245,233,0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Be Vietnam Pro', 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── SCROLL REVEAL ─── */
+.sr { opacity: 0; transform: translateY(36px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.sr.up { opacity: 1; transform: translateY(0); }
+.sr-d1 { transition-delay: .08s; }
+.sr-d2 { transition-delay: .16s; }
+.sr-d3 { transition-delay: .24s; }
+.sr-d4 { transition-delay: .32s; }
+.sr-d5 { transition-delay: .40s; }
+
+/* ════════════════════════════════════
+   NAV
+════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 6%;
+  /* Glassmorphism */
+  background: rgba(26, 58, 40, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(200,230,200,0.12);
+}
+.nav-brand-img {
+  height: 72px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: invert(1) grayscale(1) brightness(2) contrast(2);
+  mix-blend-mode: screen;
+}
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-tel {
+  font-size: .82rem; color: var(--mint-bright); font-weight: 500;
+  text-decoration: none;
+}
+.nav-brand { min-width: 10px; min-height: 10px; }
+.nav-btn {
+  background: var(--warm-amber);
+  color: var(--herb-dark);
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; font-size: .85rem;
+  padding: 9px 22px; border-radius: 100px; border: none; cursor: pointer;
+  letter-spacing: .02em; transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(255,167,38,.3);
+  text-decoration: none; display: inline-block;
+}
+.nav-btn:hover { background: var(--amber-deep); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,167,38,.4); }
+
+/* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 50%, rgba(44,94,67,.35) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 25%, rgba(165,214,167,.12) 0%, transparent 60%),
+    linear-gradient(145deg, var(--herb-deeper) 0%, var(--herb-dark) 50%, #0e2218 100%);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 48px;
+  padding: 130px 8% 80px;
+  position: relative; overflow: hidden;
+}
+
+/* Decorative blobs */
+.hero-blob {
+  position: absolute; border-radius: 50%; pointer-events: none; filter: blur(60px);
+}
+.blob1 { width: 420px; height: 420px; background: rgba(44,94,67,.22); top: -60px; right: 10%; animation: blobFloat 9s ease-in-out infinite; }
+.blob2 { width: 280px; height: 280px; background: rgba(255,167,38,.08); bottom: 60px; right: 5%; animation: blobFloat 7s ease-in-out infinite reverse; }
+.blob3 { width: 200px; height: 200px; background: rgba(165,214,167,.1); top: 40%; left: -40px; animation: blobFloat 11s ease-in-out infinite 2s; }
+@keyframes blobFloat { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(15px,-20px) scale(1.05);} 66%{transform:translate(-10px,10px) scale(.97);} }
+
+/* Decorative circle ring */
+.hero-ring {
+  position: absolute; right: calc(50% - 360px); top: 50%; transform: translateY(-50%);
+  width: 520px; height: 520px; border-radius: 50%;
+  border: 1px solid rgba(165,214,167,.08);
+  pointer-events: none;
+}
+.hero-ring::before {
+  content:''; position:absolute; inset:40px; border-radius:50%;
+  border: 1px solid rgba(165,214,167,.06);
+}
+
+.hero-text { position: relative; z-index: 2; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--glass-white); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px); border-radius: 100px;
+  padding: 7px 18px; font-size: .75rem; font-weight: 600;
+  color: var(--mint-bright); letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 24px;
+  animation: fadeSlideDown .8s ease both;
+}
+.hero-eyebrow::before { content: '✦'; color: var(--warm-amber); font-size: .7rem; }
+
+.hero-h1 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800; line-height: 1.1;
+  color: var(--white); margin-bottom: 20px;
+  letter-spacing: -.02em;
+  animation: fadeSlideDown .9s .08s ease both;
+}
+.hero-h1 .accent { color: var(--warm-amber); display: block; }
+.hero-h1 .accent-mint { color: var(--mint-bright); }
+
+.hero-sub {
+  font-size: clamp(.9rem, 1.5vw, 1rem); color: rgba(200,230,200,.8);
+  line-height: 1.75; max-width: 500px; margin-bottom: 36px;
+  animation: fadeSlideDown 1s .16s ease both;
+}
+
+.hero-usps {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px;
+  animation: fadeSlideDown 1s .22s ease both;
+}
+.hero-usp {
+  display: flex; align-items: center; gap: 12px;
+  font-size: .88rem; color: rgba(232,245,233,.85); font-weight: 500;
+}
+.usp-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  background: var(--warm-amber);
+  box-shadow: 0 0 8px rgba(255,167,38,.6);
+}
+
+.hero-btns {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  animation: fadeSlideDown 1s .28s ease both;
+}
+.btn-hero-main {
+  background: linear-gradient(135deg, var(--warm-amber), var(--amber-deep));
+  color: var(--herb-darker, #0f2017);
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 800; font-size: .95rem;
+  padding: 16px 36px; border-radius: 100px; border: none; cursor: pointer;
+  letter-spacing: .02em; box-shadow: 0 8px 28px rgba(255,167,38,.4);
+  transition: all .25s; position: relative; overflow: hidden;
+  animation: pulseShadow 3s 2s ease-in-out infinite;
+  text-decoration: none; display: inline-block;
+}
+@keyframes pulseShadow { 0%,100%{box-shadow:0 8px 28px rgba(255,167,38,.4);} 50%{box-shadow:0 8px 44px rgba(255,167,38,.65);} }
+.btn-hero-main::before {
+  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transition: left .5s;
+}
+.btn-hero-main:hover::before { left:150%; }
+.btn-hero-main:hover { transform: translateY(-3px); }
+
+.btn-hero-ghost {
+  background: var(--glass-white); border: 1.5px solid var(--glass-border);
+  backdrop-filter: blur(10px); color: var(--mint-green);
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 600; font-size: .9rem;
+  padding: 14px 28px; border-radius: 100px; cursor: pointer;
+  transition: all .25s; text-decoration: none; display: inline-block;
+}
+.btn-hero-ghost:hover { background: rgba(255,255,255,.18); border-color: var(--mint-bright); }
+
+/* HERO CARD - bên phải */
+.hero-card {
+  position: relative; z-index: 2;
+  /* Glassmorphism card */
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(200,230,200,.18);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border-radius: 32px; padding: 30px 24px;
+  animation: fadeSlideUp 1s .3s ease both;
+  text-align: center;
+}
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+
+.hero-product-image {
+  max-width: 100%;
+  height: 280px; /* Tăng kích thước theo yêu cầu */
+  object-fit: contain;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+@keyframes gentleFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+.hero-card h3 {
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; font-size: 1.25rem;
+  color: var(--white); text-align: center; margin-bottom: 6px;
+}
+.hero-card .tagline {
+  text-align: center; font-size: .82rem; color: var(--mint-bright); margin-bottom: 24px;
+  font-weight: 500;
+}
+.hero-card-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;
+}
+.stat {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px; padding: 14px 10px; text-align: center;
+}
+.stat-num {
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 800; font-size: 1.4rem;
+  color: var(--warm-amber); line-height: 1;
+}
+.stat-label { font-size: .7rem; color: rgba(200,230,200,.7); margin-top: 4px; }
+
+.hero-card-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.htag {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(200,230,200,.15);
+  border-radius: 100px; padding: 5px 12px;
+  font-size: .72rem; color: rgba(232,245,233,.8); font-weight: 500;
+}
+
+.hero-scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  animation: fadeIn 1s 1.2s ease both;
+}
+.hero-scroll-hint span { font-size: .68rem; color: rgba(165,214,167,.45); letter-spacing: .1em; text-transform: uppercase; }
+.scroll-arrow { color: rgba(165,214,167,.45); font-size: .9rem; animation: arrowBounce 2s ease-in-out infinite; }
+@keyframes arrowBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+@keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ════════════════════════════════════
+   TRUST BAR
+════════════════════════════════════ */
+.trust-bar {
+  background: var(--herb-green);
+  padding: 18px 8%;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .82rem; color: rgba(232,245,233,.85); font-weight: 500;
+}
+.trust-item-icon { font-size: 1.2rem; }
+.trust-sep { width: 1px; height: 24px; background: rgba(255,255,255,.12); }
+
+/* ════════════════════════════════════
+   SECTION COMMON
+════════════════════════════════════ */
+section { padding: 88px 8%; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--herb-green); margin-bottom: 12px;
+}
+.section-tag::before, .section-tag::after { content:''; height:1.5px; width:28px; background:var(--herb-green); border-radius:2px; }
+.section-h2 {
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 800;
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem); line-height: 1.15;
+  color: var(--herb-dark); margin-bottom: 16px; letter-spacing: -.02em;
+}
+.section-h2 em { font-style: normal; color: var(--herb-green); }
+.section-desc { font-size: .95rem; color: var(--text-muted); line-height: 1.75; max-width: 560px; }
+.center { text-align: center; }
+.center .section-desc { margin: 0 auto; }
+
+/* ════════════════════════════════════
+   PAIN POINTS
+════════════════════════════════════ */
+.pain { background: var(--amber-soft); position: relative; overflow: hidden; }
+.pain::before {
+  content:''; position:absolute; top:-120px; right:-80px;
+  width:380px; height:380px; border-radius:50%;
+  background: radial-gradient(circle, rgba(255,167,38,.09), transparent 70%);
+  pointer-events:none;
+}
+.pain-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; margin-top: 48px;
+}
+.pain-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.pain-card {
+  background: var(--white); border-radius: 24px; padding: 36px 30px;
+  box-shadow: 0 4px 20px rgba(229,57,53,.06), 0 1px 6px rgba(0,0,0,.04);
+  border: 1.5px solid rgba(229,57,53,.1);
+  position: relative; overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.pain-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3.5px;
+  background: linear-gradient(90deg, var(--red-alert), var(--warm-amber));
+}
+.pain-card:hover { transform: translateY(-7px); box-shadow: 0 14px 40px rgba(229,57,53,.13); }
+.pain-card-icon { font-size: 2.4rem; margin-bottom: 18px; display: block; }
+.pain-card h3 { font-size: 1rem; font-weight: 700; color: #b71c1c; margin-bottom: 10px; }
+.pain-card p { font-size: .875rem; color: #7d5c5c; line-height: 1.72; }
+
+/* ════════════════════════════════════
+   SOLUTION
+════════════════════════════════════ */
+.solution {
+  background: linear-gradient(145deg, var(--herb-dark) 0%, var(--herb-deeper) 100%);
+  position: relative; overflow: hidden;
+}
+.solution .section-tag { color: var(--mint-bright); }
+.solution .section-tag::before, .solution .section-tag::after { background: var(--mint-bright); }
+.solution .section-h2 { color: var(--white); }
+.solution .section-h2 em { color: var(--warm-amber); }
+
+.sol-deco {
+  position: absolute; pointer-events: none;
+  border-radius: 50%; filter: blur(80px);
+}
+.sol-deco1 { width:500px; height:500px; top:-100px; right:-80px; background:rgba(44,94,67,.2); }
+.sol-deco2 { width:300px; height:300px; bottom:-60px; left:-60px; background:rgba(255,167,38,.06); }
+
+.sol-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 52px; }
+.sol-text p { font-size: .95rem; color: rgba(232,245,233,.78); line-height: 1.8; margin-bottom: 20px; }
+.sol-quote {
+  /* Glassmorphism */
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(200,230,200,.15);
+  border-left: 3.5px solid var(--warm-amber);
+  backdrop-filter: blur(12px);
+  border-radius: 0 20px 20px 0;
+  padding: 22px 28px; margin: 28px 0;
+  font-size: 1rem; font-style: italic; font-weight: 500;
+  color: var(--amber-glow); line-height: 1.7;
+}
+.sol-grid { list-style: none; }
+.sol-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: .9rem; color: rgba(232,245,233,.8);
+  padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.sol-list li:last-child { border-bottom: none; }
+.sol-check { color: var(--warm-amber); font-size: 1rem; margin-top:1px; flex-shrink:0; }
+
+/* Glassmorphism card bên phải */
+.sol-visual {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(200,230,200,.16);
+  backdrop-filter: blur(20px) saturate(1.1);
+  border-radius: 32px; padding: 44px 36px; text-align: center;
+}
+.sol-prod-img-wrap img {
+  max-width: 100%;
+  height: 280px; /* Tăng kích thước theo yêu cầu */
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.2));
+  animation: gentleFloat 5s ease-in-out infinite reverse;
+}
+.sol-product-name {
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 800; font-size: 1.5rem;
+  color: var(--white); margin-bottom: 8px;
+}
+.sol-product-name span { color: var(--warm-amber); }
+.sol-tagline { font-size: .83rem; color: rgba(200,230,200,.65); line-height: 1.65; margin-bottom: 28px; }
+.sol-badge-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+.sol-badge {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 100px; padding: 7px 16px;
+  font-size: .75rem; color: rgba(232,245,233,.8); font-weight: 500;
+}
+
+/* ════════════════════════════════════
+   INGREDIENTS
+════════════════════════════════════ */
+.ingredients { background: var(--mint-green); }
+.ingredients .section-tag { color: var(--herb-green); }
+.ingredients .section-h2 { color: var(--herb-dark); }
+.ing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px; margin-top: 48px;
+}
+.ing-card {
+  background: var(--white); border-radius: 28px; padding: 36px 28px; text-align: center;
+  border: 1.5px solid rgba(44,94,67,.08);
+  box-shadow: 0 4px 20px rgba(44,94,67,.07);
+  transition: transform .3s ease, box-shadow .3s ease; overflow: hidden; position: relative;
+}
+/* hover zoom theo design system */
+.ing-card:hover { transform: translateY(-8px) scale(1.025); box-shadow: 0 18px 48px rgba(44,94,67,.15); }
+.ing-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--herb-green), var(--mint-bright));
+  transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+}
+.ing-card:hover::after { transform: scaleX(1); }
+.ing-emoji { font-size: 2.8rem; margin-bottom: 16px; display: block; transition: transform .3s; }
+.ing-card:hover .ing-emoji { transform: scale(1.15) rotate(-5deg); }
+.ing-name { font-family: 'Be Vietnam Pro', sans-serif; font-weight: 700; font-size: .95rem; color: var(--herb-dark); margin-bottom: 10px; }
+.ing-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.65; }
+.ing-tag {
+  display: inline-block; background: var(--mint-green); border-radius: 100px;
+  padding: 4px 12px; font-size: .7rem; font-weight: 600; color: var(--herb-green);
+  margin-top: 12px;
+}
+
+/* ════════════════════════════════════
+   BENEFITS
+════════════════════════════════════ */
+.benefits { background: var(--white); }
+.benefits-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; margin-top: 48px;
+}
+.benefit-card {
+  display: flex; align-items: flex-start; gap: 20px; padding: 28px 26px;
+  border-radius: 22px; border: 1.5px solid rgba(44,94,67,.09);
+  background: var(--cream);
+  transition: all .3s ease;
+}
+.benefit-card:hover {
+  background: var(--mint-green);
+  border-color: var(--herb-green);
+  transform: translateX(6px);
+  box-shadow: 0 8px 28px rgba(44,94,67,.1);
+}
+.benefit-icon-wrap {
+  width: 52px; height: 52px; border-radius: 16px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--herb-green), var(--herb-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 16px rgba(44,94,67,.25);
+  transition: transform .3s;
+}
+.benefit-card:hover .benefit-icon-wrap { transform: scale(1.1) rotate(-5deg); }
+.benefit-body h3 { font-size: .97rem; font-weight: 700; color: var(--herb-dark); margin-bottom: 7px; }
+.benefit-body p { font-size: .85rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ════════════════════════════════════
+   HOW TO USE
+════════════════════════════════════ */
+.howto {
+  background: linear-gradient(160deg, var(--herb-dark) 0%, var(--herb-deeper) 100%);
+  position: relative; overflow: hidden;
+}
+.howto .section-tag { color: var(--mint-bright); }
+.howto .section-tag::before, .howto .section-tag::after { background: var(--mint-bright); }
+.howto .section-h2 { color: var(--white); }
+.howto .section-h2 em { color: var(--warm-amber); }
+.howto .section-desc { color: rgba(200,230,200,.7); }
+
+.steps-connector { display: flex; align-items: flex-start; gap: 0; margin-top: 60px; position: relative; }
+.steps-connector::before {
+  content:''; position:absolute; top:48px; left:calc(16.5% - 1px); right:calc(16.5% - 1px);
+  height:2px;
+  background: linear-gradient(90deg, var(--mint-bright), rgba(165,214,167,.3), var(--mint-bright));
+  z-index:0;
+}
+.step { flex:1; text-align:center; padding: 0 16px; position:relative; z-index:1; }
+.step-bubble {
+  width: 96px; height: 96px; margin: 0 auto 22px;
+  border-radius: 50%; position: relative;
+  /* Glassmorphism */
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(200,230,200,.2);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,.2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.step:hover .step-bubble { transform: scale(1.1) rotate(-6deg); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
+.step-num {
+  position: absolute; top: -6px; right: -4px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--warm-amber); color: var(--herb-dark);
+  font-size: .72rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--herb-dark);
+}
+.step h3 { font-family:'Be Vietnam Pro',sans-serif; font-weight:700; font-size:.97rem; color:var(--white); margin-bottom:10px; }
+.step p { font-size:.83rem; color:rgba(200,230,200,.7); line-height:1.7; }
+.step-note {
+  display:inline-block; background:rgba(255,167,38,.15); border:1px solid rgba(255,167,38,.3);
+  border-radius:100px; padding:4px 14px; font-size:.72rem; color:var(--amber-glow);
+  font-weight:600; margin-top:10px;
+}
+
+/* ════════════════════════════════════
+   TEST LAB CERTIFICATES
+════════════════════════════════════ */
+.certificates { background: var(--cream); }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 48px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cert-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(44,94,67,0.04);
+  border: 1.5px solid rgba(44,94,67,0.08);
+  text-align: center;
+}
+.cert-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.4s ease;
+}
+.cert-card img:hover {
+  transform: scale(1.02);
+}
+.cert-title {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--herb-dark);
+  margin-top: 16px;
+}
+
+/* ════════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════════ */
+.testimonials { background: var(--mint-green); }
+.testimonials .section-tag, .testimonials .section-h2 { color: var(--herb-dark); }
+.testimonials .section-h2 em { color: var(--herb-green); }
+
+.testi-meta { display: flex; align-items: center; gap: 32px; margin: 28px 0 48px; }
+.testi-number {
+  font-family: 'Be Vietnam Pro', sans-serif; font-weight: 800;
+  font-size: clamp(2.8rem,6vw,4.5rem); color: var(--herb-green); line-height: 1;
+}
+.testi-number-sub { font-size: .85rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+.testi-sep { width: 1.5px; height: 56px; background: var(--herb-green); opacity: .2; }
+
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.testi-card {
+  background: var(--white); border-radius: 28px; padding: 24px 24px 36px;
+  border: 1.5px solid rgba(44,94,67,.08);
+  box-shadow: 0 4px 166px rgba(44,94,67,.06);
+  transition: transform .3s ease, box-shadow .3s ease; position: relative;
+}
+.testi-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(44,94,67,.13); }
+.testi-card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  margin-bottom: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.testi-stars { color: var(--warm-amber); font-size: .9rem; margin-bottom: 12px; letter-spacing: 2px; }
+.testi-text { font-size: .9rem; color: var(--text-body); line-height: 1.78; font-style: italic; margin-bottom: 24px; }
+.testi-author { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px dashed rgba(44,94,67,.12); }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink:0;
+  background: linear-gradient(135deg, var(--herb-green), var(--herb-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.testi-name { font-weight: 700; font-size: .88rem; color: var(--herb-dark); }
+.testi-loc { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Feedback Gallery Sub-Grid */
+.feedback-gallery-title {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--herb-dark);
+  margin: 56px 0 24px;
+}
+.feedback-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.gallery-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  border: 1px solid rgba(44,94,67,0.06);
+}
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+/* ════════════════════════════════════
+   PRICING
+════════════════════════════════════ */
+.pricing { background: var(--amber-soft); }
+.pricing .section-tag { color: var(--herb-green); }
+
+.promo-ribbon {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red-alert); color: var(--white);
+  font-weight: 800; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase;
+  padding: 10px 28px; border-radius: 100px; margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(229,57,53,.3);
+  animation: ribbonPulse 2.5s ease-in-out infinite;
+}
+@keyframes ribbonPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+.promo-ribbon::before { content: '⚡'; }
+
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+  gap: 22px; max-width: 920px; margin: 48px auto 0;
+}
+.price-card {
+  background: var(--white); border-radius: 28px; padding: 36px 30px;
+  border: 1.5px solid rgba(44,94,67,.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  transition: all .3s ease; position: relative; text-align: center; overflow: hidden;
+}
+.price-card:hover { transform: translateY(-6px); box-shadow: 0 14px 44px rgba(44,94,67,.14); }
+.price-card.popular {
+  border-color: var(--herb-green); border-width: 2px;
+  box-shadow: 0 8px 40px rgba(44,94,67,.18);
+  transform: scale(1.03);
+}
+.price-card.popular:hover { transform: scale(1.03) translateY(-6px); }
+.popular-label {
+  position: absolute; top: 0; left: 0; right: 0;
+  background: linear-gradient(90deg, var(--herb-green), var(--herb-light));
+  color: var(--white); font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 9px;
+}
+.price-card.popular .price-inner { margin-top: 22px; }
+.price-name { font-family:'Be Vietnam Pro',sans-serif; font-weight:700; font-size:.95rem; color:var(--text-muted); margin-bottom:6px; }
+.price-old { font-size:.88rem; color:#b0a090; text-decoration:line-through; margin-bottom:4px; }
+.price-main {
+  font-family:'Be Vietnam Pro',sans-serif; font-weight:800;
+  font-size:2.6rem; color:var(--herb-dark); line-height:1; margin-bottom:4px;
+}
+.price-main sub { font-size:.9rem; font-weight:600; }
+.price-save {
+  display:inline-block; background:rgba(229,57,53,.1); border:1px solid rgba(229,57,53,.2);
+  color:var(--red-alert); font-size:.72rem; font-weight:700; border-radius:100px;
+  padding:3px 12px; margin-bottom:22px;
+}
+.price-perks { list-style:none; text-align:left; margin-bottom:26px; }
+.price-perks li {
+  display:flex; align-items:flex-start; gap:9px;
+  font-size:.84rem; color:var(--text-muted);
+  padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.07);
+}
+.price-perks li:last-child { border-bottom:none; }
+.perk-check { color:var(--herb-green); font-weight:700; flex-shrink:0; margin-top:1px; }
+.price-btn {
+  width:100%; padding:15px; border-radius:100px; border:none; cursor:pointer;
+  font-family:'Be Vietnam Pro',sans-serif; font-weight:700; font-size:.92rem; letter-spacing:.02em;
+  background: linear-gradient(135deg, var(--herb-green), var(--herb-light));
+  color:var(--white); box-shadow:0 4px 16px rgba(44,94,67,.25);
+  transition:all .25s;
+}
+.price-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 8px 24px rgba(44,94,67,.35); }
+.price-card.popular .price-btn {
+  background: linear-gradient(135deg, var(--warm-amber), var(--amber-deep));
+  color: var(--herb-dark);
+  box-shadow: 0 4px 18px rgba(255,167,38,.35);
+}
+.price-card.popular .price-btn:hover { box-shadow: 0 8px 28px rgba(255,167,38,.5); }
+
+/* ════════════════════════════════════
+   ORDER FORM
+════════════════════════════════════ */
+.order-section {
+  background: linear-gradient(145deg, var(--herb-dark) 0%, var(--herb-deeper) 100%);
+  position: relative; overflow: hidden;
+}
+.order-section .section-tag { color: var(--mint-bright); }
+.order-section .section-tag::before, .order-section .section-tag::after { background: var(--mint-bright); }
+.order-section .section-h2 { color: var(--white); }
+.order-section .section-h2 em { color: var(--warm-amber); }
+
+.order-deco { position:absolute; pointer-events:none; border-radius:50%; filter:blur(80px); }
+.order-deco1 { width:450px; height:450px; top:-80px; right:-60px; background:rgba(44,94,67,.18); }
+.order-deco2 { width:280px; height:280px; bottom:-60px; left:-40px; background:rgba(255,167,38,.06); }
+
+/* Glassmorphism form */
+.order-form {
+  max-width: 580px; margin: 52px auto 0;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(200,230,200,.14);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border-radius: 32px; padding: 48px 44px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display:block; font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--mint-bright); margin-bottom:8px;
+}
+.form-group input,
+.form-group select {
+  width:100%;
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(200,230,200,.15);
+  border-radius: 14px; padding: 13px 18px;
+  font-family:'Be Vietnam Pro',sans-serif; font-size:.92rem; color:var(--white);
+  outline:none; transition:border-color .25s, background .25s;
+  -webkit-appearance:none;
+}
+.form-group input::placeholder { color:rgba(165,214,167,.35); }
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--mint-bright);
+  background: rgba(255,255,255,.1);
+}
+.form-group select option { background:#1a3a28; color:var(--white); }
+.form-submit {
+  width:100%; padding:18px; margin-top:8px;
+  background: linear-gradient(135deg, var(--warm-amber), var(--amber-deep));
+  color:var(--herb-dark); border:none; border-radius:100px; cursor:pointer;
+  font-family:'Be Vietnam Pro',sans-serif; font-weight:800; font-size:1rem; letter-spacing:.03em;
+  box-shadow:0 8px 28px rgba(255,167,38,.38); transition:all .25s;
+  position:relative; overflow:hidden;
+}
+.form-submit::before {
+  content:''; position:absolute; top:0; left:-100%; width:55%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  transition:left .5s;
+}
+.form-submit:hover::before { left:150%; }
+.form-submit:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(255,167,38,.5); }
+.form-trust-row {
+  display:flex; justify-content:center; gap:22px; margin-top:22px; flex-wrap:wrap;
+}
+.ft-item { display:flex; align-items:center; gap:6px; font-size:.75rem; color:rgba(165,214,167,.65); }
+
+/* ════════════════════════════════════
+   FAQ
+════════════════════════════════════ */
+.faq { background: var(--cream); }
+.faq-inner { max-width: 760px; margin: 52px auto 0; }
+.faq-inner .faq-card {
+  background: var(--white); border: 1.5px solid rgba(44,94,67,.1);
+  border-radius: 20px; margin-bottom: 12px; overflow:hidden;
+  transition: box-shadow .3s;
+}
+.faq-card:hover { box-shadow: 0 4px 18px rgba(44,94,67,.08); }
+.faq-card.open { border-color: var(--herb-green); }
+.faq-trigger {
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:20px 26px; cursor:pointer; user-select:none;
+}
+.faq-q-text { font-weight:700; font-size:.93rem; color:var(--herb-dark); }
+.faq-icon {
+  width:34px; height:34px; border-radius:50%; border:none; flex-shrink:0;
+  background:var(--mint-green); color:var(--herb-green);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; font-weight:700; cursor:pointer;
+  transition:transform .3s, background .3s;
+}
+.faq-card.open .faq-icon { transform:rotate(45deg); background:var(--herb-green); color:var(--white); }
+.faq-answer {
+  max-height:0; overflow:hidden;
+  transition:max-height .4s cubic-bezier(.22,1,.36,1), padding .4s;
+  padding:0 26px; font-size:.88rem; color:var(--text-muted); line-height:1.78;
+}
+.faq-card.open .faq-answer { max-height:240px; padding:0 26px 22px; }
+
+/* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+footer {
+  background: var(--herb-deeper);
+  padding: 48px 8% 36px;
+  display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;
+}
+.footer-tagline { font-size:.82rem; color:rgba(165,214,167,.55); }
+.footer-copy { font-size:.75rem; color:rgba(165,214,167,.38); margin-top:8px; }
+
+/* ════════════════════════════════════
+   MODAL SUCCESS
+════════════════════════════════════ */
+.modal-bg {
+  position:fixed; inset:0; z-index:9000;
+  background:rgba(10,28,17,.88); backdrop-filter:blur(8px);
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.modal-bg.show { display:flex; }
+.modal-box {
+  background:var(--white); border-radius:32px; padding:56px 44px;
+  max-width:420px; width:100%; text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,.3);
+  animation:modalPop .45s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes modalPop { from{transform:scale(.65);opacity:0} to{transform:scale(1);opacity:1} }
+.modal-icon { font-size:4.5rem; display:block; margin-bottom:20px; animation:gentleFloat 3s infinite; }
+.modal-box h2 { font-family:'Be Vietnam Pro',sans-serif; font-weight:800; font-size:1.6rem; color:var(--herb-dark); margin-bottom:12px; }
+.modal-box p { font-size:.9rem; color:var(--text-muted); line-height:1.72; margin-bottom:30px; }
+.modal-close-btn {
+  background:linear-gradient(135deg,var(--herb-green),var(--herb-light));
+  color:var(--white); border:none; padding:14px 40px; border-radius:100px;
+  font-family:'Be Vietnam Pro',sans-serif; font-weight:700; font-size:.95rem; cursor:pointer;
+  box-shadow:0 4px 16px rgba(44,94,67,.3); transition:all .25s;
+}
+.modal-close-btn:hover { transform:translateY(-2px); }
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero { grid-template-columns:1fr; padding:110px 6% 72px; gap:40px; }
+  .hero-ring { display:none; }
+  .sol-layout { grid-template-columns:1fr; gap:36px; }
+  .steps-connector { flex-direction:column; align-items:center; gap:28px; }
+  .steps-connector::before { display:none; }
+  .step { max-width:320px; width:100%; }
+  .form-row { grid-template-columns:1fr; }
+  .price-card.popular { transform:none; }
+  .price-card.popular:hover { transform:translateY(-6px); }
+}
+@media (max-width: 600px) {
+  /* Tối ưu hóa cấu trúc đệm và không gian thở của các phần trên thiết bị di động */
+  section { padding: 48px 4%; }
+  .hero { padding: 110px 4% 48px; text-align: center; display: flex; flex-direction: column; gap: 32px; }
+  
+  /* Căn giữa và thu gọn khối văn bản giới thiệu đầu trang */
+  .hero-eyebrow { margin-left: auto; margin-right: auto; font-size: 0.7rem; padding: 5px 14px; }
+  .hero-h1 { font-size: 1.8rem; line-height: 1.25; }
+  .hero-sub { margin-left: auto; margin-right: auto; font-size: 0.85rem; margin-bottom: 24px; line-height: 1.6; }
+  
+  /* Tạo hộp bao bọc gọn gàng cho khối USP độc quyền */
+  .hero-usps { align-items: flex-start; text-align: left; gap: 10px; margin-bottom: 28px; background: rgba(255,255,255,0.03); padding: 16px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.06); }
+  .hero-usp { font-size: 0.8rem; line-height: 1.45; }
+  
+  /* Chuyển đổi khối nút hành động thành hàng dọc toàn màn hình để dễ chạm ngón tay */
+  .hero-btns { justify-content: center; flex-direction: column; width: 100%; gap: 10px; }
+  .btn-hero-main, .btn-hero-ghost { width: 100%; text-align: center; padding: 14px 24px; font-size: 0.88rem; }
+  
+  /* Thu gọn thẻ sản phẩm phụ ở đầu trang */
+  .hero-card { padding: 24px 16px; border-radius: 24px; }
+  .hero-product-image { height: 210px; margin-bottom: 8px; }
+  .hero-card-stats { gap: 8px; }
+  .stat { padding: 10px 6px; border-radius: 12px; }
+  .stat-num { font-size: 1.15rem; }
+  .stat-label { font-size: 0.65rem; }
+
+  /* Tối ưu thanh đặc điểm tin cậy dạng lưới thu gọn */
+  .trust-bar { padding: 14px 4%; gap: 12px 16px; justify-content: center; }
+  .trust-item { font-size: 0.75rem; }
+  .trust-sep { display: none; }
+
+  /* Đồng bộ kích thước tiêu đề phần nội dung phụ */
+  .section-h2 { font-size: 1.45rem; line-height: 1.3; }
+  .section-desc { font-size: 0.85rem; line-height: 1.6; }
+
+  /* Chuẩn hóa khoảng cách lưới của các phần danh mục thẻ */
+  .pain-grid, .ing-grid, .benefits-grid, .testi-grid, .pricing-grid, .feedback-gallery-grid { gap: 16px; margin-top: 32px; }
+  .pain-card { padding: 24px 20px; border-radius: 20px; }
+  .pain-card h3 { font-size: 0.95rem; }
+  .pain-card p { font-size: 0.82rem; }
+
+  /* Thu gọn không gian hiển thị của phần giải pháp nổi bật */
+  .sol-layout { gap: 24px; margin-top: 32px; }
+  .sol-text p { font-size: 0.88rem; line-height: 1.6; }
+  .sol-quote { padding: 16px 20px; font-size: 0.88rem; margin: 20px 0; border-radius: 0 12px 12px 0; }
+  .sol-list li { font-size: 0.82rem; padding: 8px 0; }
+  .sol-visual { padding: 28px 20px; border-radius: 24px; }
+  .sol-prod-img-wrap img { height: 210px; margin-bottom: 12px; }
+  .sol-product-name { font-size: 1.35rem; }
+  .sol-tagline { font-size: 0.78rem; margin-bottom: 20px; }
+  .sol-badge { padding: 5px 12px; font-size: 0.7rem; }
+
+  /* Định hình lại các thẻ thành phần và lợi ích vàng */
+  .ing-card { padding: 24px 20px; border-radius: 20px; }
+  .ing-emoji { font-size: 2.2rem; margin-bottom: 12px; }
+  .ing-name { font-size: 0.88rem; }
+  .ing-desc { font-size: 0.78rem; }
+
+  .benefit-card { padding: 18px 16px; border-radius: 16px; gap: 14px; }
+  .benefit-icon-wrap { width: 42px; height: 42px; font-size: 1.1rem; border-radius: 12px; }
+  .benefit-body h3 { font-size: 0.88rem; }
+  .benefit-body p { font-size: 0.78rem; }
+
+  /* Tinh chỉnh quy trình các bước hướng dẫn sử dụng */
+  .step-bubble { width: 76px; height: 76px; font-size: 1.8rem; margin-bottom: 16px; }
+  .step h3 { font-size: 0.88rem; }
+  .step p { font-size: 0.78rem; }
+  .step-note { font-size: 0.68rem; padding: 4px 12px; }
+
+  /* Khối chứng nhận chất lượng */
+  .cert-grid { gap: 16px; margin-top: 32px; }
+  .cert-card { padding: 12px; border-radius: 16px; }
+  .cert-title { font-size: 0.82rem; margin-top: 10px; }
+
+  /* Thu gọn thông số phản hồi thực tế */
+  .testi-meta { gap: 16px; margin: 20px 0 32px; flex-wrap: wrap; justify-content: center; }
+  .testi-number { font-size: 2.2rem !important; }
+  .testi-number-sub { font-size: 0.75rem; }
+  .testi-sep { height: 36px; }
+  .testi-card { padding: 20px; border-radius: 20px; }
+  .testi-text { font-size: 0.82rem; line-height: 1.6; margin-bottom: 16px; }
+  .testi-author { padding-top: 12px; gap: 10px; }
+  .testi-avatar { width: 38px; height: 38px; font-size: 0.95rem; }
+  .testi-name { font-size: 0.82rem; }
+  .testi-loc { font-size: 0.7rem; }
+  .feedback-gallery-title { font-size: 1.1rem; margin: 36px 0 16px; }
+  .gallery-card { border-radius: 16px; padding: 6px; }
+
+  /* Tối ưu bảng giá dịch vụ dạng thẻ nén */
+  .price-card { padding: 28px 20px; border-radius: 24px; }
+  .price-main { font-size: 2.2rem; }
+  .price-name { font-size: 0.88rem; }
+  .price-old { font-size: 0.8rem; }
+  .price-save { font-size: 0.68rem; margin-bottom: 16px; }
+  .price-perks li { font-size: 0.78rem; padding: 6px 0; }
+  .price-btn { padding: 12px; font-size: 0.85rem; }
+
+  /* Nâng cấp phom mẫu đăng ký đặt mua */
+  .order-form { padding: 28px 20px; border-radius: 24px; margin-top: 32px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { font-size: 0.7rem; margin-bottom: 6px; }
+  .form-group input, .form-group select { padding: 12px 16px; font-size: 0.88rem; border-radius: 12px; }
+  .form-submit { padding: 15px; font-size: 0.92rem; margin-top: 4px; border-radius: 100px; }
+  .form-trust-row { gap: 12px; margin-top: 16px; }
+  .ft-item { font-size: 0.7rem; }
+
+  /* Khối câu hỏi thường gặp FAQ nén lề */
+  .faq-inner { margin-top: 32px; }
+  .faq-card { border-radius: 14px; margin-bottom: 8px; }
+  .faq-trigger { padding: 14px 18px; gap: 12px; }
+  .faq-q-text { font-size: 0.85rem; }
+  .faq-icon { width: 28px; height: 28px; font-size: 1.1rem; }
+  .faq-card.open .faq-answer { padding: 0 18px 16px; font-size: 0.8rem; line-height: 1.6; }
+
+  /* Phần chân trang cuối cùng */
+  footer { padding: 36px 6% 24px; gap: 12px; }
+  .footer-tagline { font-size: 0.78rem; line-height: 1.4; }
+  .footer-copy { font-size: 0.7rem; margin-top: 4px; }
+
+  /* Thanh menu điều hướng đầu trang */
+  .nav-tel { display: none; }
+  .nav { padding: 8px 4%; }
+  .nav-btn { padding: 7px 16px; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"></div>
+  <div class="nav-right">
+    <a href="tel:0123456789" class="nav-tel">📞 0123 456 789</a>
+    <a href="#order" class="nav-btn">Đặt Mua Ngay →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-blob blob3"></div>
+  <div class="hero-ring"></div>
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">Muối Tắm Bé Thảo Dược Cao Cấp</div>
+    <h1 class="hero-h1">
+      Thuần Thiên Nhiên –
+      <span class="accent">Khỏe Tận Gốc</span>
+      <span style="font-size:clamp(1.1rem,2vw,1.5rem);font-weight:500;color:rgba(200,230,200,.8);display:block;margin-top:6px;letter-spacing:0;">cùng Muối Tắm Bé <span class="accent-mint">Sao Sa</span></span>
+    </h1>
+    <p class="hero-sub">Sự kết hợp tinh túy từ muối biển tinh khiết và kháng sinh tự nhiên từ các thảo dược dân gian. Bảo vệ tự nhiên, nuôi dưỡng làn da non nớt của bé yêu mỗi ngày.</p>
+    <div class="hero-usps">
+      <div class="hero-usp"><div class="usp-dot"></div>🍀 100% Thuần tự nhiên – Không hóa chất, không paraben, không hương liệu tổng hợp</div>
+      <div class="hero-usp"><div class="usp-dot"></div>🍃 Thảo dược thật – Kim ngân, Tầm bóp, Trà xanh, Tinh dầu tràm cô đặc</div>
+      <div class="hero-usp"><div class="usp-dot"></div>🛡️ Kiểm nghiệm an toàn – Đạt chuẩn y tế, dịu nhẹ tối đa cho cả trẻ sơ sinh</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#order" class="btn-hero-main">🎁 Nhận Ưu Đãi 35% – Đặt Ngay</a>
+      <a href="#ingredients" class="btn-hero-ghost">Xem Thành Phần ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-card sr">
+    <img src="hinh-anh-san-pham.jpg" alt="Hũ Muối Tắm Bé Sao Sa" class="hero-product-image">
+    <h3>Muối Tắm Bé Sao Sa</h3>
+    <p class="tagline">Liệu pháp tắm thảo dược trọn gói<br>Tắm xong không cần tráng lại</p>
+    <div class="hero-card-stats">
+      <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Mẹ tin dùng</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Thuần tự nhiên</div></div>
+      <div class="stat"><div class="stat-num">3 Ngày</div><div class="stat-label">Thấy hiệu quả</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Hóa chất độc hại</div></div>
+    </div>
+    <div class="hero-card-tags">
+      <span class="htag">🧂 Muối biển</span>
+      <span class="htag">🌼 Kim ngân</span>
+      <span class="htag">🌿 Tầm bóp</span>
+      <span class="htag">🌱 Tinh dầu tràm</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Khám phá</span>
+    <div class="scroll-arrow">▼</div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-item-icon">✅</span> Đạt Chuẩn Y Tế</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-item-icon">🚚</span> Giao Hàng Toàn Quốc</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-item-icon">🔄</span> Đổi Trả 30 Ngày</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-item-icon">🍀</span> 100% Thuần Thiên Nhiên</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-item-icon">👶</span> An Toàn Từ Sơ Sinh</div>
+</div>
+
+<section class="pain" id="pain">
+  <div class="center">
+    <div class="section-tag slice sr">Nỗi Lòng Của Mẹ</div>
+    <h2 class="section-h2 sr sr-d1">Mẹ Có Đang Lo Lắng Khi Làn Da<br><em>Bé Yêu Gặp Những Vấn Đề Này?</em></h2>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card sr sr-d1">
+      <span class="pain-card-icon">😰</span>
+      <h3>Mẩn ngứa, Rôm sảy, Viêm da liên miên</h3>
+      <p>Bé ngứa ngáy, quấy khóc cả đêm, mất ngủ làm mẹ xót xa không yên. Tình trạng cứ tái đi tái lại mà không có giải pháp bền vững nào.</p>
+    </div>
+    <div class="pain-card sr sr-d2">
+      <span class="pain-card-icon">⚗️</span>
+      <h3>Lạm dụng hóa chất công nghiệp quá sớm</h3>
+      <p>Các loại sữa tắm thông thường chứa SLS, paraben, hương liệu nhân tạo dễ bào mòn lớp lipid bảo vệ da non nớt của trẻ, gây hại lâu dài.</p>
+    </div>
+    <div class="pain-card sr sr-d3">
+      <span class="pain-card-icon">😓</span>
+      <h3>Cực nhọc đun nước lá tắm truyền thống</h3>
+      <p>Tìm mua lá sạch, rửa sạch, đun nấu mất hàng giờ. Chưa kể nguy cơ thuốc trừ sâu, sâu lông còn sót lại trên lá gây dị ứng nặng hơn cho bé.</p>
+    </div>
+  </div>
+</section>
+
+<section class="solution" id="solution">
+  <div class="sol-deco sol-deco1"></div>
+  <div class="sol-deco sol-deco2"></div>
+  <div class="section-tag sr">Giải Pháp</div>
+  <h2 class="section-h2 sr sr-d1">Giải Pháp Dịu Lành Từ Thiên Nhiên –<br><em>Cho Làn Da Bé Khỏe Mạnh Tự Nhiên</em></h2>
+  <div class="sol-layout">
+    <div class="sol-text sr sr-d1">
+      <p>Muối tắm bé Sao Sa không chỉ đơn thuần là muối tắm. Đây là <strong style="color:var(--mint-bright)">liệu pháp tắm thảo dược trọn gói</strong> giúp nâng niu, làm sạch sâu và củng cố hàng rào bảo vệ da bé mà <strong style="color:var(--warm-amber)">không cần tráng lại bằng nước thường.</strong></p>
+      <div class="sol-quote">
+        "Nước tắm thảo dược lưu lại trên da giúp cân bằng hệ vi sinh, làm dày lớp màng lipit sinh học tự nhiên, bảo vệ da bé khỏi vi khuẩn suốt ngày dài."
+      </div>
+      <ul class="sol-list">
+        <li><span class="sol-check">★</span> Làm sạch sâu, loại bỏ vi khuẩn hoàn toàn tự nhiên</li>
+        <li><span class="sol-check">★</span> Củng cố màng lipid sinh học bảo vệ da bé</li>
+        <li><span class="sol-check">★</span> Kháng khuẩn, kháng viêm từ thảo dược dân gian</li>
+        <li><span class="sol-check">★</span> Tắm không cần tráng – giữ nguyên dưỡng chất</li>
+        <li><span class="sol-check">★</span> 0% hóa chất – paraben – hương liệu tổng hợp</li>
+      </ul>
+    </div>
+    <div class="sol-visual sr sr-d2">
+      <div class="sol-prod-img-wrap">
+        <img src="hinh-anh-san-pham.jpg" alt="Muối Tắm Bé Sao Sa Chiết Xuất Tự Nhiên">
+      </div>
+      <div class="sol-product-name">Muối Tắm Bé<br><span>Sao Sa</span></div>
+      <p class="sol-tagline">Chiết xuất cô đặc từ Kim ngân · Tầm bóp · Trà xanh<br>Tinh dầu tràm · Muối biển tinh khiết</p>
+      <div class="sol-badge-row">
+        <span class="sol-badge">🧂 Muối biển</span>
+        <span class="sol-badge">🌼 Kim ngân</span>
+        <span class="sol-badge">🍵 Trà xanh</span>
+        <span class="sol-badge">🌱 Tinh dầu tràm</span>
+        <span class="sol-badge">🌿 Tầm bóp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ingredients" id="ingredients">
+  <div class="center">
+    <div class="section-tag sr">Thành Phần</div>
+    <h2 class="section-h2 sr sr-d1">Thành Phần Kháng Sinh Tự Nhiên –<br><em>Tinh Túy Từ Đất Mẹ</em></h2>
+    <p class="section-desc sr sr-d2">Mỗi thành phần được chọn lọc kỹ lưỡng, chiết xuất cô đặc để mang lại hiệu quả tối đa, an toàn tuyệt đối cho làn da nhạy cảm của bé.</p>
+  </div>
+  <div class="ing-grid">
+    <div class="ing-card sr sr-d1">
+      <span class="ing-emoji">🧂</span>
+      <div class="ing-name">Muối Biển Tinh Khiết</div>
+      <p class="ing-desc">Sát khuẩn tự nhiên, làm sạch bã nhờn, cung cấp vi khoáng thiết yếu giúp da khỏe mạnh từ bên trong.</p>
+      <span class="ing-tag">Kháng khuẩn tự nhiên</span>
+    </div>
+    <div class="ing-card sr sr-d2">
+      <span class="ing-emoji">🌼</span>
+      <div class="ing-name">Kim Ngân Hoa</div>
+      <p class="ing-desc">Mệnh danh "kháng sinh thực vật", hỗ trợ giảm ngứa, tiêu viêm da, rôm sảy cực nhạy và hiệu quả.</p>
+      <span class="ing-tag">Kháng sinh thực vật</span>
+    </div>
+    <div class="ing-card sr sr-d3">
+      <span class="ing-emoji">🍵</span>
+      <div class="ing-name">Cây Tầm Bóp & Trà Xanh</div>
+      <p class="ing-desc">Kháng khuẩn, làm mát da, chống oxy hóa, phục hồi nhanh các vùng da bị tổn thương, kích ứng.</p>
+      <span class="ing-tag">Chống oxy hóa</span>
+    </div>
+    <div class="ing-card sr sr-d4">
+      <span class="ing-emoji">🌱</span>
+      <div class="ing-name">Tinh Dầu Tràm Gió</div>
+      <p class="ing-desc">Giữ ấm cơ thể bé, phòng ngừa cảm mạo, ho, sổ mũi và xua đuổi côn trùng tự nhiên hiệu quả.</p>
+      <span class="ing-tag">Giữ ấm & xua côn trùng</span>
+    </div>
+  </div>
+</section>
+
+<section class="benefits" id="benefits">
+  <div>
+    <div class="section-tag sr">Lợi Ích Vàng</div>
+    <h2 class="section-h2 sr sr-d1">5 Lý Do Mẹ Thông Thái<br><em>Lựa Chọn Muối Tắm Sao Sa</em></h2>
+    <p class="section-desc sr sr-d2">Không chỉ là sản phẩm – đây là giải pháp chăm sóc da bé toàn diện, bền vững mà các mẹ tin tưởng.</p>
+  </div>
+  <div class="benefits-grid" style="margin-top:48px">
+    <div class="benefit-card sr sr-d1">
+      <div class="benefit-icon-wrap">✨</div>
+      <div class="benefit-body">
+        <h3>Dưỡng Ẩm Tự Nhiên</h3>
+        <p>Da bé luôn mềm mại, mịn màng nhờ được bổ sung độ ẩm sinh học, không bị khô ráp sau tắm.</p>
+      </div>
+    </div>
+    <div class="benefit-card sr sr-d2">
+      <div class="benefit-icon-wrap">🛡️</div>
+      <div class="benefit-body">
+        <h3>Củng Cố Màng Lipid Bảo Vệ</h3>
+        <p>Giúp da bé tự đề kháng trước vi khuẩn, giảm hẳn tần suất tái phát rôm sảy, chàm sữa.</p>
+      </div>
+    </div>
+    <div class="benefit-card sr sr-d3">
+      <div class="benefit-icon-wrap">⏱️</div>
+      <div class="benefit-body">
+        <h3>Tiết Kiệm Thời Gian</h3>
+        <p>Chỉ 5 phút mỗi ngày, tắm không cần tráng lại, giữ nguyên dưỡng chất thảo mộc trên da bé.</p>
+      </div>
+    </div>
+    <div class="benefit-card sr sr-d4">
+      <div class="benefit-icon-wrap">🌸</div>
+      <div class="benefit-body">
+        <h3>Hương Thảo Mộc Dịu Nhẹ</h3>
+        <p>Tinh dầu tràm và thảo dược giúp bé thư giãn, ngủ ngon và sâu giấc hơn sau mỗi lần tắm.</p>
+      </div>
+    </div>
+    <div class="benefit-card sr sr-d5">
+      <div class="benefit-icon-wrap">❌</div>
+      <div class="benefit-body">
+        <h3>Nói Không Với Hóa Chất</h3>
+        <p>An tâm tuyệt đối cho làn da nhạy cảm nhất của trẻ sơ sinh – không SLS, không paraben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howto" id="howto">
+  <div class="center">
+    <div class="section-tag sr">Hướng Dẫn</div>
+    <h2 class="section-h2 sr sr-d1">3 Bước Tắm Dịu Lành –<br><em>Bé Khỏe, Mẹ Tênh</em></h2>
+    <p class="section-desc sr sr-d2" style="color:rgba(200,230,200,.65)">Đơn giản, nhanh gọn và hiệu quả. Không đun nấu, không lỉnh kỉnh, không mất thời gian.</p>
+  </div>
+  <div class="steps-connector">
+    <div class="step sr sr-d1">
+      <div class="step-bubble">
+        🌊<div class="step-num">1</div>
+      </div>
+      <h3>Hòa Tan Muối</h3>
+      <p>Hòa tan 1–2 thìa muối tắm Sao Sa vào chậu nước ấm khoảng 37°C. Khuấy đều cho tan hoàn toàn.</p>
+    </div>
+    <div class="step sr sr-d2">
+      <div class="step-bubble">
+        🤲<div class="step-num">2</div>
+      </div>
+      <h3>Tắm & Massage</h3>
+      <p>Tắm và massage nhẹ nhàng toàn thân cho bé trong 5–7 phút để thảo dược thấm sâu vào da.</p>
+    </div>
+    <div class="step sr sr-d3">
+      <div class="step-bubble">
+        🌟<div class="step-num">3</div>
+      </div>
+      <h3>Lau Khô – Không Tráng</h3>
+      <p>Lau khô bằng khăn mềm.</p>
+      <span class="step-note">⭐ Tuyệt đối không tráng lại bằng nước thường!</span>
+    </div>
+  </div>
+</section>
+
+<section class="certificates" id="certificates">
+  <div class="center">
+    <div class="section-tag sr">Minh Bạch Chất Lượng</div>
+    <h2 class="section-h2 sr sr-d1">Phiếu Kiểm Nghiệm Nghiêm Ngặt<br><em>An Toàn Tuyệt Đối Cho Bé</em></h2>
+    <p class="section-desc sr sr-d2">Sự an tâm của mẹ là trên hết. Muối tắm Sao Sa đã vượt qua tất cả các bài thử nghiệm khắt khe về vi sinh và kim loại nặng từ các trung tâm kiểm nghiệm uy tín nhất.</p>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card sr sr-d1">
+      <img src="SCAN1246_anh_chup.jpg" alt="Phiếu kiểm nghiệm chất lượng Muối tắm bé Sao Sa">
+      <div class="cert-title">Cam Kết Chất Lượng Đảm Bảo An Toàn</div>
+    </div>
+    <div class="cert-card sr sr-d2">
+      <img src="z3481094064401_bc3e0e0583cfad0e446def2756fadf17 (1).jpg" alt="Chứng nhận độ lành tính từ Muối tắm bé Sao Sa">
+      <div class="cert-title">Chiết Xuất Từ Thiên Nhiên Đạt Chuẩn</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="center">
+    <div class="section-tag sr">Phản Hồi Thực TẾ</div>
+    <h2 class="section-h2 sr sr-d1">Hơn <em>10.000+ Mẹ Việt</em><br>Đã Tin Dùng & Chia Sẻ</h2>
+  </div>
+  <div class="testi-meta sr sr-d2" style="justify-content: center;">
+    <div>
+      <div class="testi-number">10,000+</div>
+      <div class="testi-number-sub">Mẹ bỉm tin dùng trên toàn quốc</div>
+    </div>
+    <div class="testi-sep"></div>
+    <div>
+      <div class="testi-number" style="font-size:clamp(2rem,4vw,3rem);">4.9★</div>
+      <div class="testi-number-sub">Đánh giá trung bình</div>
+    </div>
+    <div class="testi-sep"></div>
+    <div>
+      <div class="testi-number" style="font-size:clamp(2rem,4vw,3rem);">98%</div>
+      <div class="testi-number-sub">Mẹ sẽ giới thiệu bạn bè</div>
+    </div>
+  </div>
+  
+  <div class="testi-grid">
+    <div class="testi-card sr sr-d1">
+      <img src="KH Phượng.jpg" alt="Kết quả giảm rôm sảy mẩn đỏ trên da bé" class="testi-card-img">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Bé nhà mình bị chàm và rôm đỏ hết hai má, con ngứa ngáy cào rách cả da. Thế mà chuyển sang dùng muối tắm Sao Sa đến ngày thứ 3 các vết dị ứng lặn dần rõ rệt, da trộm vía láng mịn trở lại!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">Mẹ Phượng</div>
+          <div class="testi-loc">📍 Hà Nội</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testi-card sr sr-d2">
+      <img src="IMG_3300.jpg" alt="Mẹ và bé hạnh phúc bên hũ Muối tắm Sao Sa" class="testi-card-img">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Thích nhất là tắm xong không cần tráng lại, tinh dầu tràm giữ ấm cho bé rất tốt. Mùi thơm thảo mộc tự nhiên nhẹ nhàng, tắm xong con thoải mái và ngủ rất ngoan, sâu giấc.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">TT</div>
+        <div>
+          <div class="testi-name">Mẹ Thu Thảo</div>
+          <div class="testi-loc">📍 TP. Hồ Chí Minh</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testi-card sr sr-d3">
+      <img src="phan-hoi-khach-hang.jpg" alt="Feedback thực tế phản hồi từ mẹ Minh Hằng" class="testi-card-img">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Bé nhà mình có da nhạy cảm cực kỳ, đổi qua mấy loại sữa tắm đắt tiền vẫn bị kích ứng nổi nốt. Từ khi đổi sang hũ muối thảo dược thiên nhiên của Sao Sa thì trộm vía yên tâm hẳn, da khỏe, không lo hóa chất bảo quản.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MH</div>
+        <div>
+          <div class="testi-name">Mẹ Minh Hằng</div>
+          <div class="testi-loc">📍 Đà Nẵng</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center">
+    <h3 class="feedback-gallery-title sr">Đánh Giá Thực Tế Từ Tin Nhắn Của Các Mẹ</h3>
+    <div class="feedback-gallery-grid">
+      <div class="gallery-card sr sr-d1">
+        <img src="feedback-tin-nhan1.jpg" alt="Tin nhắn feedback khách hàng dùng muối tắm">
+      </div>
+      <div class="gallery-card sr sr-d2">
+        <img src="feedback-tin-nhan2.jpg" alt="Đánh giá từ khách hàng đã mua sản phẩm">
+      </div>
+      <div class="gallery-card sr sr-d3">
+        <img src="feedback-tin-nhan3.jpg" alt="Hình ảnh chụp tin nhắn tư vấn muối tắm bé">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="center">
+    <div class="promo-ribbon sr">Ưu Đãi 35% – Chỉ Hôm Nay</div>
+    <div class="section-tag sr">Bảng Giá</div>
+    <h2 class="section-h2 sr sr-d1">Chọn Gói Phù Hợp –<br><em>Tiết Kiệm Càng Nhiều Khi Mua Càng Nhiều</em></h2>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card sr sr-d1">
+      <div class="price-inner">
+        <div class="price-name">🌱 Hộp Dùng Thử</div>
+        <div class="price-old">Giá gốc: 200.000đ</div>
+        <div class="price-main">150<sub>.000đ</sub></div>
+        <span class="price-save">Tiết kiệm 50.000đ</span>
+        <ul class="price-perks">
+          <li><span class="perk-check">✓</span>1 hộp muối tắm Sao Sa 200g</li>
+          <li><span class="perk-check">✓</span>Phù hợp trải nghiệm lần đầu</li>
+          <li><span class="perk-check">✓</span>Hướng dẫn sử dụng chi tiết</li>
+        </ul>
+        <button class="price-btn" onclick="chonGoi('🌱 Hộp Dùng Thử – 150.000đ')">Chọn Gói Này</button>
+      </div>
+    </div>
+    <div class="price-card popular sr sr-d2">
+      <div class="popular-label">🔥 Bán Chạy Nhất</div>
+      <div class="price-inner">
+        <div class="price-name">💪 Liệu Trình Bảo Vệ</div>
+        <div class="price-old">Giá gốc: 400.000đ</div>
+        <div class="price-main">280<sub>.000đ</sub></div>
+        <span class="price-save">Tiết kiệm 120.000đ</span>
+        <ul class="price-perks">
+          <li><span class="perk-check">✓</span>Combo 2 hộp muối tắm Sao Sa</li>
+          <li><span class="perk-check">✓</span>Miễn phí vận chuyển toàn quốc</li>
+          <li><span class="perk-check">✓</span>Liệu trình bảo vệ da bé 2 tháng</li>
+          <li><span class="perk-check">✓</span>Ưu tiên tư vấn chuyên gia</li>
+        </ul>
+        <button class="price-btn" onclick="chonGoi('💪 Liệu Trình Bảo Vệ – 280.000đ')">Chọn Gói Này</button>
+      </div>
+    </div>
+    <div class="price-card sr sr-d3">
+      <div class="price-inner">
+        <div class="price-name">💎 Combo Siêu Tiết Kiệm</div>
+        <div class="price-old">Giá gốc: 600.000đ</div>
+        <div class="price-main">390<sub>.000đ</sub></div>
+        <span class="price-save">Tiết kiệm 210.000đ</span>
+        <ul class="price-perks">
+          <li><span class="perk-check">✓</span>3 hộp muối tắm Sao Sa</li>
+          <li><span class="perk-check">✓</span>Miễn phí vận chuyển toàn quốc</li>
+          <li><span class="perk-check">✓</span>Tặng 1 khăn tắm sợi tre cao cấp</li>
+          <li><span class="perk-check">✓</span>Giá tốt nhất – tiết kiệm tối đa</li>
+        </ul>
+        <button class="price-btn" onclick="chonGoi('💎 Combo Siêu Tiết Kiệm – 390.000đ')">Chọn Gói Này</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order-section" id="order">
+  <div class="order-deco order-deco1"></div>
+  <div class="order-deco order-deco2"></div>
+  <div class="section-tag sr">Đặt Hàng</div>
+  <h2 class="section-h2 sr sr-d1">Đặt Hàng Ngay –<br><em>Giao Hàng Tận Cửa Nhanh Chóng</em></h2>
+  <form class="order-form sr sr-d2" onsubmit="return false;">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Họ và Tên Mẹ</label>
+        <input type="text" id="inp-name" placeholder="Nhập họ và tên..." />
+      </div>
+      <div class="form-group">
+        <label>Số Điện Thoại</label>
+        <input type="tel" id="inp-phone" placeholder="0xxx xxx xxx" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Địa Chỉ Giao Hàng</label>
+      <input type="text" id="inp-addr" placeholder="Số nhà, đường, phường/xã, tỉnh/thành..." />
+    </div>
+    <div class="form-group">
+      <label>Chọn Gói Sản Phẩm</label>
+      <select id="inp-plan">
+        <option value="">-- Chọn gói phù hợp với mẹ --</option>
+        <option value="thu">🌱 Hộp Dùng Thử – 150.000đ</option>
+        <option value="bao-ve">💪 Liệu Trình Bảo Vệ (Combo 2 hộp) – 280.000đ ✈️ Free Ship</option>
+        <option value="tiet-kiem">💎 Combo Siêu Tiết Kiệm (3 hộp + Khăn sợi tre) – 390.000đ ✈️ Free Ship</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="datHang()">🛒 ĐẶT HÀNG NGAY – BẢO VỆ DA BÉ</button>
+    <div class="form-trust-row">
+      <div class="ft-item">🔒 Bảo mật thông tin</div>
+      <div class="ft-item">🚚 Giao hàng toàn quốc</div>
+      <div class="ft-item">✅ Đổi trả 30 ngày</div>
+    </div>
+  </form>
+</section>
+
+<section class="faq" id="faq">
+  <div class="center">
+    <div class="section-tag sr">Giải Đáp</div>
+    <h2 class="section-h2 sr sr-d1">Câu Hỏi Thường Gặp</h2>
+  </div>
+  <div class="faq-inner">
+    <div class="faq-card sr sr-d1">
+      <div class="faq-trigger" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Bé sơ sinh từ mấy ngày tuổi có dùng được không?</span>
+        <button class="faq-icon" type="button">+</button>
+      </div>
+      <div class="faq-answer">Sản phẩm chiết xuất hoàn toàn từ muối biển sạch và thảo dược thiên nhiên lành tính, tuyệt đối an toàn cho trẻ từ sơ sinh. Không chứa bất kỳ hóa chất công nghiệp nào có thể gây hại cho làn da non nớt.</div>
+    </div>
+    <div class="faq-card sr sr-d2">
+      <div class="faq-trigger" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Tại sau tắm muối Sao Sa lại không cần tráng lại?</span>
+        <button class="faq-icon" type="button">+</button>
+      </div>
+      <div class="faq-answer">Việc không tráng lại giúp giữ lại một lớp mỏng tinh dầu tràm và dịch chiết thảo dược trên da, đóng vai trò như một lớp màng sinh học kháng khuẩn, kháng viêm và giữ ẩm lâu dài. Đây là ưu điểm vượt trội so với các sản phẩm tắm thông thường.</div>
+    </div>
+    <div class="faq-card sr sr-d3">
+      <div class="faq-trigger" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Bao lâu thì thấy hiệu quả rõ rệt?</span>
+        <button class="faq-icon" type="button">+</button>
+      </div>
+      <div class="faq-answer">Với các trường hợp rôm sảy nhẹ, mẹ có thể thấy cải thiện rõ rệt sau 3–5 ngày sử dụng đều đặn. Để có hiệu quả bảo vệ lâu dài và phòng ngừa tái phát, Sao Sa khuyến nghị sử dụng liên tục ít nhất 1 tháng.</div>
+    </div>
+    <div class="faq-card sr sr-d4">
+      <div class="faq-trigger" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Có thể dùng cho người lớn và phụ nữ sau sinh không?</span>
+        <button class="faq-icon" type="button">+</button>
+      </div>
+      <div class="faq-answer">Hoàn toàn có thể! Muối tắm Sao Sa với thành phần thuần tự nhiên rất phù hợp cho mẹ sau sinh, giúp làm sạch và phục hồi da, đồng thời hương tinh dầu tràm giúp thư giãn và phòng cảm lạnh.</div>
+    </div>
+    <div class="faq-card sr sr-d5">
+      <div class="faq-trigger" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Chính sách đổi trả như thế nào?</span>
+        <button class="faq-icon" type="button">+</button>
+      </div>
+      <div class="faq-answer">Sao Sa hỗ trợ đổi trả trong vòng 30 ngày nếu sản phẩm bị lỗi từ nhà sản xuất. Mẹ có thể liên hệ hotline hoặc fanpage để được hỗ trợ nhanh nhất. Cam kết hoàn tiền 100% if sản phẩm không đúng mô tả.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-tagline">Muối Tắm Thảo Dược Cao Cấp Cho Bé – 100% Thuần Thiên Nhiên</p>
+  <p class="footer-tagline">📞 0123 456 789 &nbsp;|&nbsp; 📧 saosa.baby@email.com &nbsp;|&nbsp; 🕐 Hỗ trợ 8:00 – 22:00</p>
+  <p class="footer-copy">© 2026 Sao Sa Baby. Tất cả quyền được bảo lưu.</p>
+</footer>
+
+<div class="modal-bg" id="modalBg" onclick="dongModal(event)">
+  <div class="modal-box">
+    <span class="modal-icon">🎉</span>
+    <h2>Đặt Hàng Thành Công!</h2>
+    <p>Cảm ơn mẹ đã tin tưởng lựa chọn Muối Tắm Bé Sao Sa! Chúng tôi sẽ liên hệ xác nhận đơn hàng và giao hàng trong 1–3 ngày làm việc. Chúc bé yêu luôn khỏe mạnh và vui vẻ! 🌿</p>
+    <button class="modal-close-btn" onclick="document.getElementById('modalBg').classList.remove('show')">Tuyệt Vời! ✓</button>
+  </div>
+</div>
+
+<script>
+/* ── SCROLL REVEAL ── */
+const srEls = document.querySelectorAll('.sr');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('up'), i * 55);
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+srEls.forEach(el => io.observe(el));
+
+/* ── FAQ ACCORDION ── */
+function toggleFaq(trigger) {
+  const card = trigger.closest('.faq-card');
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.faq-card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+/* ── CHỌN GÓI TỪ PRICING ── */
+function chonGoi(tenGoi) {
+  const sel = document.getElementById('inp-plan');
+  const map = {
+    '🌱': 'thu',
+    '💪': 'bao-ve',
+    '💎': 'tiet-kiem'
+  };
+  const emoji = tenGoi.trim().charAt(0);
+  if (map[emoji]) sel.value = map[emoji];
+  document.getElementById('order').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── ĐẶT HÀNG ── */
+function datHang() {
+  const name  = document.getElementById('inp-name').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
+  const addr  = document.getElementById('inp-addr').value.trim();
+  const plan  = document.getElementById('inp-plan').value;
+
+  if (!name)  { alert('Mẹ ơi, vui lòng nhập họ và tên nhé! 💚'); return; }
+  if (!phone) { alert('Vui lòng nhập số điện thoại để chúng tôi liên hệ mẹ nhé!'); return; }
+  if (!/^(0|\+84)[0-9]{8,9}$/.test(phone.replace(/\s/g,''))) {
+    alert('Số điện thoại chưa đúng định dạng, mẹ kiểm tra lại nhé!'); return;
+  }
+  if (!addr)  { alert('Vui lòng nhập địa chỉ giao hàng mẹ nhé!'); return; }
+  if (!plan)  { alert('Mẹ chưa chọn gói sản phẩm!'); return; }
+
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-phone').value = '';
+  document.getElementById('inp-addr').value = '';
+  document.getElementById('inp-plan').value = '';
+  document.getElementById('modalBg').classList.add('show');
+}
+
+/* ── ĐÓNG MODAL KHI CLICK NỀN ── */
+function dongModal(e) {
+  if (e.target.id === 'modalBg') document.getElementById('modalBg').classList.remove('show');
+}
+</script>
+</body>
+</html>
